@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>双飞翼布局</title>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+    <header>
+        <h1>CSS布局 -- 双飞翼布局</h1>
+    </header>
+
+    <!-- 双飞翼布局 -->
+    <div class="container">
+        <!-- 中间主体部分 重要部分 放在前面渲染 -->
+        <div class="content">
+            <div class="content-inner">
+                <article>
+                    <h2>圣杯布局跟双飞翼布局的实现，目的都是左右两栏固定宽度，中间部分自适应</h2>
+                    <p>
+                        圣杯是西方表达“渴求之物"的意思，不是一种对页面的形象表达。
+                        双飞翼据考源自淘宝UED，应该是一种页面的形象的表达。
+                        圣杯布局和双飞翼布局解决的问题是一样的，就是两边定宽，中间自适应的三栏布局，中间栏要在放在文档流前面以优先渲染。 圣杯布局和双飞翼布局解决问题的方案在前一半是相同的，也就是三栏全部float浮动，但左右两栏加上负margin让其跟中间栏div并排，以形成三栏布局。 不同在于解决”中间栏div内容不被遮挡“问题的思路不一样：
+                        圣杯布局，为了中间div内容不被遮挡，将中间div设置了左右padding-left和padding-right后，将左右两个div用相对布局position: relative并分别配合right和left属性，以便左右两栏div移动后不遮挡中间div。 双飞翼布局，为了中间div内容不被遮挡，直接在中间div内部创建子div用于放置内容，在该子div里用margin-left和margin-right为左右两栏div留出位置。 多了1个div，少用大致4个css属性（圣杯布局中间divpadding-left和padding-right这2个属性，加上左右两个div用相对布局position: relative及对应的right和left共4个属性，一共6个；而双飞翼布局子div里用margin-left和margin-right共2个属性，6-2=4），个人感觉比圣杯布局思路更直接和简洁一点。 简单说起来就是”双飞翼布局比圣杯布局多创建了一个div，但不用相对布局了“，
+                    </p>
+                </article>
+            </div>
+        </div>
+        <!-- end 中间主体部分 -->
+
+        <!-- 左侧边栏 -->
+        <div class="left-aside">
+            <h2>左侧边栏 </h2>
+            <p>
+                法制晚报讯哥伦比亚在2015年放宽了针对中国商人、游客的签证限制，当地华商数量大幅增长。但在本月26日，哥伦比亚华商朋友圈中却传播着一条信息：“哥伦比亚商贩打砸华商商铺，威胁将华人华商赶出哥伦比亚”。
+            </p>
+        </div>
+        <!-- end 左侧边栏 -->
+
+        <!-- 右侧边栏 -->
+        <div class="right-aside">
+            <h2>右侧边栏</h2>
+            <p>
+                经中国驻哥伦比亚大使馆证实，近日在哥伦比亚确实有针对华商的抗议活动，并出现推搡华侨商铺店员、打砸华人商铺等行为。
+                《法制晚报》记者连线当地华人得知，中国商品价格低廉与部分商家高价租赁店面转租的做法激怒了当地商贩，双方缺乏沟通也使得矛盾加深
+            </p>
+        </div>
+        <!-- end 右侧边栏 -->
+    </div>
+    <!-- end 双飞翼布局 -->
+
+    <footer>
+        <p>
+            &copy; 版权信息部分
+        </p>
+    </footer>
+</body>
+
+</html>
